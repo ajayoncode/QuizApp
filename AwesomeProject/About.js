@@ -28,19 +28,7 @@ Modal
   }
 }
 
-login(){
 
-  this.arr=[{id:this.id,username:this.state.inputUserName,fullname:this.state.inputFullName,
-    passkey:this.state.inputPasskey,contactno:this.state.inputContact}]
-this.id++
-
- this.setState({
-  account:this.arr,
-   modalVisibility:false
- })
-   // console.log(this.arr)
- this.props.navigation.navigate('Dash',{ajay:this.arr});
-}
 
 render() {
   
