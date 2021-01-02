@@ -14,6 +14,7 @@ import Notes from './MyComponent/Quiz/ScienceQuiz';
 import ScienceQuiz from './MyComponent/Quiz/ScienceQuiz';
 import ComputerQuiz from './MyComponent/Quiz/ComputerQuiz';
   
+// new line added
 
 const Drawer = createDrawerNavigator();
 
