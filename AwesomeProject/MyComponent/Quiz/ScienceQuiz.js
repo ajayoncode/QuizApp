@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Text, View, Modal, TouchableOpacity, Image, ImageBackground } from 'react-native';
+import { Text, View, Modal, TouchableOpacity, Image, ImageBackground,StyleSheet } from 'react-native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { NavigationContainer } from '@react-navigation/native';
 import { useNavigation } from '@react-navigation/native';
@@ -137,35 +137,32 @@ export default class ScienceQuiz extends React.Component {
           backgroundColor: '#e6aa50', minHeight: 100,
           width: '95%', marginRight: 20,
           borderRadius: 10,
-          flexDirection: 'row',
         }}>
 
           <Text style={{ fontSize: 24, color: 'white', marginLeft: 10, marginTop: 10 }}>Q.{this.state.quiz[this.state.num].quesNo} {this.state.quiz[this.state.num].question}</Text>
-          <Text style={{ fontSize: 18, color: 'white', marginTop: 10, marginLeft: '15%' }}>Score:{score}/5</Text>
-
         </View>
 
 
         <TouchableOpacity onPress={() => this.onSelectOpt(this.state.num, this.state.quiz[this.state.num].opt1, 0)}>
-          <View style={{ marginTop: 30, marginLeft: 10, backgroundColor: this.state.optColor[0], minHeight: 50, width: '95%', marginRight: 20, borderRadius: 10 }}>
+          <View style={{...styles.optionContainer,backgroundColor: this.state.optColor[0]}}>
             <Text style={{ fontSize: 24, color: 'white', marginLeft: 10, marginTop: 10 }}>A {this.state.quiz[this.state.num].opt1} </Text>
           </View>
         </TouchableOpacity>
 
         <TouchableOpacity onPress={() => this.onSelectOpt(this.state.num, this.state.quiz[this.state.num].opt2, 1)}>
-          <View style={{ marginTop: 30, marginLeft: 10, backgroundColor: this.state.optColor[1], minHeight: 50, width: '95%', marginRight: 20, borderRadius: 10 }}>
+          <View style={{...styles.optionContainer,backgroundColor: this.state.optColor[1]}}>
             <Text style={{ fontSize: 24, color: 'white', marginLeft: 10, marginTop: 10 }}>B {this.state.quiz[this.state.num].opt2} </Text>
           </View>
         </TouchableOpacity>
 
         <TouchableOpacity onPress={() => this.onSelectOpt(this.state.num, this.state.quiz[this.state.num].opt3, 2)}>
-          <View style={{ marginTop: 30, marginLeft: 10, backgroundColor: this.state.optColor[2], minHeight: 50, width: '95%', marginRight: 20, borderRadius: 10 }}>
+          <View style={{...styles.optionContainer,backgroundColor: this.state.optColor[2]}}>
             <Text style={{ fontSize: 24, color: 'white', marginLeft: 10, marginTop: 10 }}>C {this.state.quiz[this.state.num].opt3} </Text>
           </View>
         </TouchableOpacity>
 
         <TouchableOpacity onPress={() => this.onSelectOpt(this.state.num, this.state.quiz[this.state.num].opt4, 3)}>
-          <View style={{ marginTop: 30, marginLeft: 10, backgroundColor: this.state.optColor[3], minHeight: 50, width: '95%', marginRight: 20, borderRadius: 10 }}>
+          <View style={{...styles.optionContainer,backgroundColor: this.state.optColor[3]}}>
             <Text style={{ fontSize: 24, color: 'white', marginLeft: 10, marginTop: 10 }}>D {this.state.quiz[this.state.num].opt4} </Text>
           </View>
         </TouchableOpacity>
@@ -214,3 +211,15 @@ export default class ScienceQuiz extends React.Component {
     );
   }
 }
+
+const styles = StyleSheet.create({
+  optionContainer:{
+    marginTop: 30, 
+    marginLeft: 10, 
+   // backgroundColor: this.state.optColor[0], 
+    minHeight: 50, width: '95%', 
+    marginRight: 20,
+    borderRadius: 10
+  }
+
+})
