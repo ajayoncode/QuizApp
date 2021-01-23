@@ -1,6 +1,6 @@
 //1836-18122# images add, new design don
 import React from 'react';
-import { Text, View,AsyncStorage,Modal,TouchableOpacity,Image,ImageBackground  } from 'react-native';
+import { Text, View,StyleSheet,Modal,TouchableOpacity,Image,ImageBackground  } from 'react-native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { NavigationContainer } from '@react-navigation/native';
 import { useNavigation } from '@react-navigation/native';
@@ -78,29 +78,31 @@ onSelectOpt(quesNumber,questAnswer,optSelected)
           if(this.state.quiz[quesNumber].answer==questAnswer)
           {
             //alert('Right Answer, WOW!!')
-            optColor[optSelected]='limegreen'
+            if(optColor[optSelected]!='limegreen')
             score++;
+
+            optColor[optSelected]='limegreen'
           }
           else
           {
            // alert('try again')
          optColor[optSelected]='red'
 
-         var i=0;
-           if(this.state.quiz[quesNumber].answer==this.state.quiz[quesNumber].opt1)
-             optColor[i]='limegreen'
-           i++;
+        //  var i=0;
+        //    if(this.state.quiz[quesNumber].answer==this.state.quiz[quesNumber].opt1)
+        //      optColor[i]='limegreen'
+        //    i++;
 
-           if(this.state.quiz[quesNumber].answer==this.state.quiz[quesNumber].opt2)
-             optColor[i]='limegreen'
-           i++;
+        //    if(this.state.quiz[quesNumber].answer==this.state.quiz[quesNumber].opt2)
+        //      optColor[i]='limegreen'
+        //    i++;
 
-           if(this.state.quiz[quesNumber].answer==this.state.quiz[quesNumber].opt3)
-             optColor[i]='limegreen'
-             i++;
-           if(this.state.quiz[quesNumber].answer==this.state.quiz[quesNumber].opt4)
-             optColor[i]='limegreen'
-             i++;
+        //    if(this.state.quiz[quesNumber].answer==this.state.quiz[quesNumber].opt3)
+        //      optColor[i]='limegreen'
+        //      i++;
+        //    if(this.state.quiz[quesNumber].answer==this.state.quiz[quesNumber].opt4)
+        //      optColor[i]='limegreen'
+        //      i++;
          }
 
           return {
@@ -155,29 +157,30 @@ render()
             </View>
         
 
-        <TouchableOpacity onPress={()=>this.onSelectOpt(this.state.num,this.state.quiz[this.state.num].opt1,0)}>
-            <View style={{marginTop:30,marginLeft:10,backgroundColor:this.state.optColor[0],minHeight:50,width:'95%',marginRight:20,borderRadius:10}}>
-              <Text style={{fontSize:24,color:'white',marginLeft:10,marginTop:10}}>A {this.state.quiz[this.state.num].opt1} </Text>
-            </View>
+        
+            <TouchableOpacity onPress={() => this.onSelectOpt(this.state.num, this.state.quiz[this.state.num].opt1, 0)}>
+          <View style={{...styles.optionContainer,backgroundColor: this.state.optColor[0]}}>
+            <Text style={{ fontSize: 24, color: 'white', marginLeft: 10, marginTop: 10 }}>A {this.state.quiz[this.state.num].opt1} </Text>
+          </View>
         </TouchableOpacity>
 
-        <TouchableOpacity onPress={()=>this.onSelectOpt(this.state.num,this.state.quiz[this.state.num].opt2,1)}>
-            <View style={{marginTop:30,marginLeft:10,backgroundColor:this.state.optColor[1],minHeight:50,width:'95%',marginRight:20,borderRadius:10}}>
-                <Text style={{fontSize:24,color:'white',marginLeft:10,marginTop:10}}>B {this.state.quiz[this.state.num].opt2} </Text>
-            </View>
-       </TouchableOpacity>
-
-    <TouchableOpacity onPress={()=>this.onSelectOpt(this.state.num,this.state.quiz[this.state.num].opt3,2)}>
-          <View style={{marginTop:30,marginLeft:10,backgroundColor:this.state.optColor[2],minHeight:50,width:'95%',marginRight:20,borderRadius:10}}>     
-            <Text style={{fontSize:24,color:'white',marginLeft:10,marginTop:10}}>C {this.state.quiz[this.state.num].opt3} </Text>
+        <TouchableOpacity onPress={() => this.onSelectOpt(this.state.num, this.state.quiz[this.state.num].opt2, 1)}>
+          <View style={{...styles.optionContainer,backgroundColor: this.state.optColor[1]}}>
+            <Text style={{ fontSize: 24, color: 'white', marginLeft: 10, marginTop: 10 }}>B {this.state.quiz[this.state.num].opt2} </Text>
           </View>
-      </TouchableOpacity>
+        </TouchableOpacity>
 
-      <TouchableOpacity onPress={()=>this.onSelectOpt(this.state.num,this.state.quiz[this.state.num].opt4,3)}>
-          <View style={{marginTop:30,marginLeft:10,backgroundColor:this.state.optColor[3],minHeight:50,width:'95%',marginRight:20,borderRadius:10}}>
-                <Text style={{fontSize:24,color:'white',marginLeft:10,marginTop:10}}>D {this.state.quiz[this.state.num].opt4} </Text>
+        <TouchableOpacity onPress={() => this.onSelectOpt(this.state.num, this.state.quiz[this.state.num].opt3, 2)}>
+          <View style={{...styles.optionContainer,backgroundColor: this.state.optColor[2]}}>
+            <Text style={{ fontSize: 24, color: 'white', marginLeft: 10, marginTop: 10 }}>C {this.state.quiz[this.state.num].opt3} </Text>
           </View>
-      </TouchableOpacity>
+        </TouchableOpacity>
+
+        <TouchableOpacity onPress={() => this.onSelectOpt(this.state.num, this.state.quiz[this.state.num].opt4, 3)}>
+          <View style={{...styles.optionContainer,backgroundColor: this.state.optColor[3]}}>
+            <Text style={{ fontSize: 24, color: 'white', marginLeft: 10, marginTop: 10 }}>D {this.state.quiz[this.state.num].opt4} </Text>
+          </View>
+        </TouchableOpacity>
 
 
         <TouchableOpacity onPress={()=>this.submit()}>
@@ -219,3 +222,16 @@ render()
   </View>
   );}
 }
+
+const styles = StyleSheet.create({
+  optionContainer:{
+    marginTop: 30, 
+    marginLeft: 10, 
+   // backgroundColor: this.state.optColor[0], 
+    minHeight: 50, width: '95%', 
+    marginRight: 20,
+    borderRadius: 10,
+    borderWidth:1
+  }
+
+})

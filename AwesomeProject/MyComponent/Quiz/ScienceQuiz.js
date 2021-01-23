@@ -69,28 +69,15 @@ export default class ScienceQuiz extends React.Component {
 
           if (this.state.quiz[quesNumber].answer == questAnswer) {
             //alert('Right Answer, WOW!!')
-            optColor[optSelected] = 'limegreen'
+           
+            if(optColor[optSelected]!='limegreen')
             score++;
+            optColor[optSelected] = 'limegreen'
+          
+           
           }
           else {
-            // alert('try again')
             optColor[optSelected] = 'red'
-
-            var i = 0;
-            if (this.state.quiz[quesNumber].answer == this.state.quiz[quesNumber].opt1)
-              optColor[i] = 'limegreen'
-            i++;
-
-            if (this.state.quiz[quesNumber].answer == this.state.quiz[quesNumber].opt2)
-              optColor[i] = 'limegreen'
-            i++;
-
-            if (this.state.quiz[quesNumber].answer == this.state.quiz[quesNumber].opt3)
-              optColor[i] = 'limegreen'
-            i++;
-            if (this.state.quiz[quesNumber].answer == this.state.quiz[quesNumber].opt4)
-              optColor[i] = 'limegreen'
-            i++;
           }
 
           return {
@@ -219,7 +206,8 @@ const styles = StyleSheet.create({
    // backgroundColor: this.state.optColor[0], 
     minHeight: 50, width: '95%', 
     marginRight: 20,
-    borderRadius: 10
+    borderRadius: 10,
+    borderWidth:1
   }
 
 })

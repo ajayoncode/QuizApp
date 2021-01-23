@@ -2,6 +2,7 @@
 //201225-2254 #Computer quiz screel added
 //1554-210121# code review and test
 //1647-210121# Style sheet updated in science screen
+//1741-230121# Code reviewed and updated
 import React from 'react';
 import { Text, View} from 'react-native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
