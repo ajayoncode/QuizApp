@@ -65,7 +65,7 @@ submit(){
 onSelectOpt(quesNumber,questAnswer,optSelected)
 {
    
-  if(this.state.num<10)
+  //if(this.state.num<10)
   {
 
   this.setState(
@@ -115,8 +115,8 @@ onSelectOpt(quesNumber,questAnswer,optSelected)
 
 
   }
-  else
-  alert('Your Score is '+score)
+ // else
+ // alert('Your Score is '+score)
 
 }
  

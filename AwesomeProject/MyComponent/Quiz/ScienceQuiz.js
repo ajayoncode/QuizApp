@@ -30,7 +30,7 @@ export default class ScienceQuiz extends React.Component {
 
     this.setState({ num: this.state.num + 1 })
 
-    console.log(this.state.num + "hello" + score)
+   // console.log(this.state.num + "hello" + score)
 
     this.setState(
       prevState => {
@@ -40,7 +40,8 @@ export default class ScienceQuiz extends React.Component {
         } = prevState;
 
 
-        if (this.state.num > 8) { num = 0, this.setState({ modalVisible: true }) }
+        if (this.state.num > 8) 
+        { num = 0, this.setState({ modalVisible: true }) }
 
         optColor[0] = '#7FD7EE'
         optColor[1] = '#7FD7EE'
@@ -59,7 +60,8 @@ export default class ScienceQuiz extends React.Component {
 
   onSelectOpt(quesNumber, questAnswer, optSelected) {
 
-    if (this.state.num < 10) {
+   // if (this.state.num < 10) 
+   {
 
       this.setState(
         prevState => {
@@ -90,8 +92,8 @@ export default class ScienceQuiz extends React.Component {
 
 
     }
-    else
-      alert('Your Score is ' + score)
+   // else
+    //  alert('Your Score is ' + score)
 
   }
 
